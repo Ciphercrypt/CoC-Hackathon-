@@ -152,7 +152,7 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                                         color: theme.palette.primary[200]
                                                     }}
                                                 >
-                                                    Total Number of Taps
+                                                    Total Number of Taps2
                                                 </Typography>
                                             </Grid>
                                         </Grid>
