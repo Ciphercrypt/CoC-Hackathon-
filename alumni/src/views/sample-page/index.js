@@ -3,17 +3,22 @@ import { Typography } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
-import AddEvent from 'addpages/addevents';
-
+import Events from 'views/dashboard/Default/events';
+import Job from 'views/dashboard/Default/job';
+import Photogalary from 'views/dashboard/Photogalary';
+import UserList from 'views/dashboard/userlist';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const SamplePage = () => (
 
     <>
     
-    <AddEvent />
+    <Events />
+    <Job />
+    <Photogalary />
+    <UserList />
 
-    hey
+   
     </>
     // <MainCard title="Sample Card">
     //     {/* <Typography variant="body2">
