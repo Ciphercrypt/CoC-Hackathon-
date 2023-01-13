@@ -7,7 +7,7 @@ dotenv.config()
 
 const userRoutes=require('./routes/UserRoutes');
 const tapRoutes=require('./routes/TapRoutes');
-
+const adminRoutes=require('./routes/adminRoutes');
 
 var jsonParser = bodyParser.json();
 var urlEncoded = bodyParser.urlencoded({ extended: true });
@@ -26,6 +26,8 @@ let _response = {};
     
 app.use('/api/user', userRoutes);
 app.use('/api/tap', tapRoutes);
+app.use('/api/admin', adminRoutes);
+
 
 
 app.use((req, res, next) => {
