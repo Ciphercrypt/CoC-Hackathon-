@@ -3,11 +3,17 @@ const bodyParser=require('body-parser');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const cors=require('cors');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const multer = require('multer');
 dotenv.config()
 
 const userRoutes=require('./routes/UserRoutes');
 const tapRoutes=require('./routes/TapRoutes');
 const adminRoutes=require('./routes/adminRoutes');
+
+
+
 
 var jsonParser = bodyParser.json();
 var urlEncoded = bodyParser.urlencoded({ extended: true });
@@ -38,6 +44,23 @@ app.use((req, res, next) => {
     error.status = 404
     next(error);
 })
+
+
+const storage = new CloudinaryStorage({
+	cloudinary : cloudinary,
+	params     : {
+		folder : 'test'
+	}
+});
+
+cloudinary.config({
+	cloud_name : process.env.CLOUDINARY_NAME,
+	api_key    : process.env.CLOUDINARY_API_KEY,
+	api_secret : process.env.CLOUDINARY_API_SECRET
+});
+
+
+
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     res.json({
