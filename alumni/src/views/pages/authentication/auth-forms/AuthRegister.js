@@ -144,6 +144,17 @@ const FirebaseRegister = ({ ...others }) => {
         initialValues={{
           email: "",
           password: "",
+          fname: "",
+          lname: "",
+          batch_year: "",
+          branch: "",
+          clg_id: "",
+          contact: "",
+          post: "",
+          company: "",
+          emp_type: "",
+          dob: "",
+          address:"",
           submit: null,
         }}
         validationSchema={Yup.object().shape({
@@ -155,6 +166,7 @@ const FirebaseRegister = ({ ...others }) => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
+            console.log(values)
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
@@ -188,6 +200,10 @@ const FirebaseRegister = ({ ...others }) => {
                   name="fname"
                   type="text"
                   defaultValue=""
+                  value={ values.fname }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   sx={{ ...theme.typography.customInput }}
                 />
               </Grid>
@@ -197,6 +213,10 @@ const FirebaseRegister = ({ ...others }) => {
                   label="Last Name"
                   margin="normal"
                   name="lname"
+                  value={ values.lname }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   type="text"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -210,7 +230,11 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="Batch Year"
                   margin="normal"
-                  name="fname"
+                  name="batch_year"
+                  value={ values.batch_year }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   type="number"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -219,10 +243,14 @@ const FirebaseRegister = ({ ...others }) => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
-                  label="Branch"
+                  label="branch"
                   margin="normal"
-                  name="lname"
+                  name="branch"
                   type="text"
+                  value={ values.branch }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -235,7 +263,11 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="College ID"
                   margin="normal"
-                  name="fname"
+                  name="clg_id"
+                  value={ values.clg_id }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   type="Number"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -246,8 +278,12 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="Contact Number"
                   margin="normal"
-                  name="lname"
+                  name="contact"
+                  value={values.contact}
                   type="text"
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -275,8 +311,11 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="Current Post"
                   margin="normal"
-                  name="lname"
+                  name="post"
                   type="text"
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -289,8 +328,12 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="Current Company"
                   margin="normal"
-                  name="fname"
+                  name="company"
+                  value={values.company}
                   type="Text"
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -300,14 +343,45 @@ const FirebaseRegister = ({ ...others }) => {
                   fullWidth
                   label="Date Of Birth"
                   margin="normal"
-                  name="lname"
+                  name="dob"
+                  value={values.dob}
                   type="Date"
+                  onChange={(e) => 
+                  handleChange(e)
+                }
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
               </Grid>
             </Grid>
-
+ <FormControl
+              fullWidth
+              error={Boolean(touched.address && errors.address)}
+              sx={{ ...theme.typography.customInput }}
+            >
+              <InputLabel htmlFor="outlined-adornment-email-register" >
+                Address
+              </InputLabel>
+              <OutlinedInput
+                rows={ 4 }
+                minRows={4}
+                id="outlined-adornment-email-register"
+                type="text"
+                value={values.address}
+                name="address"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                inputProps={{}}
+              />
+              {touched.address && errors.address && (
+                <FormHelperText
+                  error
+                  id="standard-weight-helper-text--register"
+                >
+                  {errors.address}
+                </FormHelperText>
+              )}
+            </FormControl>
 
             <FormControl
               fullWidth
@@ -438,6 +512,7 @@ const FirebaseRegister = ({ ...others }) => {
                   type="submit"
                   variant="contained"
                   color="secondary"
+                  onClick={handleSubmit}
                 >
                   Sign up
                 </Button>

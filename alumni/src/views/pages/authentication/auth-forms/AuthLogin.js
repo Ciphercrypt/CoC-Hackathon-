@@ -130,6 +130,7 @@ const FirebaseLogin = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
+                        console.log(values)
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
@@ -232,6 +233,7 @@ const FirebaseLogin = ({ ...others }) => {
                                     type="submit"
                                     variant="contained"
                                     color="secondary"
+                                    onClick={handleSubmit}
                                 >
                                     Sign in
                                 </Button>
