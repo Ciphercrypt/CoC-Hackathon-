@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
-import { Avatar, Box, ButtonBase, Card, Grid, InputAdornment, OutlinedInput, Popper } from '@mui/material';
+import { Avatar, Box, Button, ButtonBase, Card, Grid, InputAdornment, OutlinedInput, Popper } from '@mui/material';
 
 // third-party
 import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
@@ -122,7 +122,7 @@ const SearchSection = () => {
 
     return (
         <>
-            <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+            {/* <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                 <PopupState variant="popper" popupId="demo-popup-popper">
                     {(popupState) => (
                         <>
@@ -161,7 +161,7 @@ const SearchSection = () => {
                         </>
                     )}
                 </PopupState>
-            </Box>
+            </Box> */}
             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                 <OutlineInputStyle
                     id="input-search-header"
@@ -185,6 +185,9 @@ const SearchSection = () => {
                     aria-describedby="search-helper-text"
                     inputProps={{ 'aria-label': 'weight' }}
                 />
+                <Button style={ { marginLeft: 10 } } variant="outlined">Name</Button>
+                <Button style={ { marginLeft: 10 } } variant="outlined">Batch Year</Button>
+                <Button  style={{marginLeft:10}} variant="outlined">Branch</Button>
             </Box>
         </>
     );
