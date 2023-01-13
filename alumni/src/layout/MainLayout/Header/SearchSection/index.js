@@ -15,6 +15,9 @@ import Transitions from 'ui-component/extended/Transitions';
 // assets
 import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons';
 import { shouldForwardProp } from '@mui/system';
+import FilterDialog from '../FilterDialog';
+import { useDispatch } from 'react-redux';
+import { OPEN_FILTER_DIALOG } from 'store/actions';
 
 // styles
 const PopperStyle = styled(Popper, { shouldForwardProp })(({ theme }) => ({
@@ -119,9 +122,11 @@ MobileSearch.propTypes = {
 const SearchSection = () => {
     const theme = useTheme();
     const [value, setValue] = useState('');
+    const dispatch = useDispatch();
 
     return (
         <>
+            <FilterDialog/>
             {/* <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                 <PopupState variant="popper" popupId="demo-popup-popper">
                     {(popupState) => (
@@ -175,7 +180,7 @@ const SearchSection = () => {
                     }
                     endAdornment={
                         <InputAdornment position="end">
-                            <ButtonBase sx={{ borderRadius: '12px' }}>
+                            <ButtonBase sx={{ borderRadius: '12px' }} onClick={() => dispatch({type:OPEN_FILTER_DIALOG})}>
                                 <HeaderAvatarStyle variant="rounded">
                                     <IconAdjustmentsHorizontal stroke={1.5} size="1.3rem" />
                                 </HeaderAvatarStyle>
