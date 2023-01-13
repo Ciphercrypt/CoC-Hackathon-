@@ -18,6 +18,8 @@ import ChartDataYear from './chart-data/total-order-year-line-chart';
 // assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
     backgroundColor: theme.palette.primary.dark,
@@ -82,29 +84,10 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                             <Grid item>
                                 <Grid container justifyContent="space-between">
                                     <Grid item>
-                                        <Avatar
-                                            variant="rounded"
-                                            sx={{
-                                                ...theme.typography.commonAvatar,
-                                                ...theme.typography.largeAvatar,
-                                                backgroundColor: theme.palette.primary[800],
-                                                color: '#fff',
-                                                mt: 1
-                                            }}
-                                        >
-                                            <LocalMallOutlinedIcon fontSize="inherit" />
-                                        </Avatar>
+                                       Centenary Year Celebration 
                                     </Grid>
                                     <Grid item>
-                                        <Button
-                                            disableElevation
-                                            variant={timeValue ? 'contained' : 'text'}
-                                            size="small"
-                                            sx={{ color: 'inherit' }}
-                                            onClick={(e) => handleChangeTime(e, true)}
-                                        >
-                                            Month
-                                        </Button>
+                                        
                                         <Button
                                             disableElevation
                                             variant={!timeValue ? 'contained' : 'text'}
@@ -112,7 +95,8 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                             sx={{ color: 'inherit' }}
                                             onClick={(e) => handleChangeTime(e, false)}
                                         >
-                                            Year
+                                            View More 
+                                            <ChevronRightOutlinedIcon />
                                         </Button>
                                     </Grid>
                                 </Grid>
@@ -121,45 +105,17 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                 <Grid container alignItems="center">
                                     <Grid item xs={6}>
                                         <Grid container alignItems="center">
-                                            <Grid item>
-                                                {timeValue ? (
-                                                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                                        $108
-                                                    </Typography>
-                                                ) : (
-                                                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                                        $961
-                                                    </Typography>
-                                                )}
-                                            </Grid>
-                                            <Grid item>
-                                                <Avatar
-                                                    sx={{
-                                                        ...theme.typography.smallAvatar,
-                                                        cursor: 'pointer',
-                                                        backgroundColor: theme.palette.primary[200],
-                                                        color: theme.palette.primary.dark
-                                                    }}
-                                                >
-                                                    <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
-                                                </Avatar>
-                                            </Grid>
+                                           
+                                            
                                             <Grid item xs={12}>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: '1rem',
-                                                        fontWeight: 500,
-                                                        color: theme.palette.primary[200]
-                                                    }}
-                                                >
-                                                    Total Number of Taps
-                                                </Typography>
+                                                
                                             </Grid>
+
                                         </Grid>
+
                                     </Grid>
-                                    <Grid item xs={6}>
-                                        {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
-                                    </Grid>
+                                    This error message is indicating that the path argument passed to the cloudinary uploader is either null or not a valid string or Uint8Array. Make sure that you are passing a valid file path or buffer to the uploader. Also check that the file exists at the provided path and that it is accessible.
+
                                 </Grid>
                             </Grid>
                         </Grid>

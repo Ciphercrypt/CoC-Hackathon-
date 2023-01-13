@@ -18,6 +18,11 @@ import InstagramPost from './chart-data/PostComponent';
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
+
+
+  
+
+
 const Dashboard = () => {
 	const [
 		isLoading,
@@ -26,6 +31,8 @@ const Dashboard = () => {
 	useEffect(() => {
 		setLoading(false);
 	}, []);
+
+
 
 	return (
 		<Grid container spacing={gridSpacing} justifyContent="center" alignItems={'center'}>
@@ -39,11 +46,28 @@ const Dashboard = () => {
 						</Carousel>
 					</Grid> */}
 			<Grid item lg={4} md={6} sm={6} xs={12}>
-				<Carousel>
+				
+					
+					
 					<TotalOrderLineChartCard isLoading={isLoading} />
+
+				
+			</Grid>
+			<Grid item lg={4} md={6} sm={6} xs={12}>
+				
+					
+					
 					<TotalOrderLineChartCard isLoading={isLoading} />
+
+				
+			</Grid>
+			<Grid item lg={4} md={6} sm={6} xs={12}>
+				
+					
+					
 					<TotalOrderLineChartCard isLoading={isLoading} />
-				</Carousel>
+
+				
 			</Grid>
 			{/* <Grid item lg={4} md={12} sm={12} xs={12}>
 						<Grid container spacing={gridSpacing}>
@@ -59,6 +83,20 @@ const Dashboard = () => {
 			{/* </Grid> */}
 			<Grid item xs={12}>
 				<Grid container spacing={gridSpacing}>
+				
+					<Grid item xs={12} md={8}>
+						<TotalGrowthBarChart isLoading={isLoading} />
+					</Grid>
+					<Grid item xs={12} md={4}>
+						<PopularCard isLoading={isLoading} />
+					</Grid>
+					
+					<Grid item xs={12} md={8}>
+						<TotalGrowthBarChart isLoading={isLoading} />
+					</Grid>
+					<Grid item xs={12} md={4}>
+						<PopularCard isLoading={isLoading} />
+					</Grid>
 					<Grid item xs={12} md={8}>
 						{/* <TotalGrowthBarChart isLoading={isLoading} /> */}
 						<InstagramPost

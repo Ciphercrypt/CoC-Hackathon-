@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import { Grid, MenuItem, TextField, Typography } from '@mui/material';
 
 // third-party
@@ -33,9 +34,24 @@ const status = [
     }
 ];
 
+
+
+
+const useStyles = makeStyles({
+	image: {
+	  maxWidth: "100%",
+	  height: "auto"
+	}
+  });
+
+
+
+
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const TotalGrowthBarChart = ({ isLoading }) => {
+    const classes = useStyles();
+
     const [value, setValue] = useState('today');
     const theme = useTheme();
     const customization = useSelector((state) => state.customization);
@@ -83,9 +99,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
         };
 
         // do not load chart when loading
-        if (!isLoading) {
-            ApexCharts.exec(`bar-chart`, 'updateOptions', newChartData);
-        }
+      
     }, [navType, primary200, primaryDark, secondaryMain, secondaryLight, primary, darkLight, grey200, isLoading, grey500]);
 
     return (
@@ -108,6 +122,7 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                                     </Grid>
                                 </Grid>
                                 <Grid item>
+                                 
                                     <TextField
                                         id="standard-select-currency"
                                         select
@@ -124,7 +139,9 @@ const TotalGrowthBarChart = ({ isLoading }) => {
                             </Grid>
                         </Grid>
                         <Grid item xs={12}>
-                            <Chart {...chartData} />
+                            {/* <Chart {...chartData} /> */}
+                            <img src="https://images.pexels.com/photos/87611/sun-fireball-solar-flare-sunlight-87611.jpeg" className={classes.image} alt="my image" />
+
                         </Grid>
                     </Grid>
                 </MainCard>
