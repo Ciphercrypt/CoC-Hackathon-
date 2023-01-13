@@ -7,12 +7,13 @@ import Events from 'views/dashboard/Default/events';
 import Job from 'views/dashboard/Default/job';
 import Photogalary from 'views/dashboard/Photogalary';
 import UserList from 'views/dashboard/userlist';
+import AddEvent from 'addpages/addevents';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const SamplePage = () => (
 
     <>
-    
+    <AddEvent />
     <Events />
     <Job />
     <Photogalary />
