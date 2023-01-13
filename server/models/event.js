@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const NotificationSchema = new Schema(
+const EventSchema = new Schema(
   {
-    not_id: {
+    event_id: {
         type:Number,
         required:true
     },
@@ -18,6 +18,14 @@ const NotificationSchema = new Schema(
       timestamp: {
         type: Date,
         default: Date.now
+      },
+      event_date: {
+        type: Date,
+        required: true
+      },
+      event_time: {
+        type: Date,
+        required: true
       },
       priority: {
         type: String,
@@ -35,4 +43,4 @@ const NotificationSchema = new Schema(
   { strict: false }
 );
 
-module.exports = mongoose.model("notifications", NotificationSchema);
+module.exports = mongoose.model("Event", EventSchema);
