@@ -197,7 +197,7 @@ const AddJob = ({ ...others }) => {
                   margin="normal"
                   name="salary"
                   value={values.salary}
-                  type="text"
+                  type="number"
                   onChange={(e) => 
                   handleChange(e)
                 }
@@ -205,32 +205,128 @@ const AddJob = ({ ...others }) => {
                   sx={{ ...theme.typography.customInput }}
                 />
               </Grid>
-            </Grid>
+            </Grid> 
 
+<Grid container spacing={matchDownSM ? 0 : 2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Job Type"
+                  margin="normal"
+                  name="job_type"
+                  type="text"
+                  defaultValue=""
+                  value={ values.job_type }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Experience"
+                  margin="normal"
+                  name="experience"
+                  value={ values.experience }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  type="text"
+                  defaultValue=""
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+            </Grid>
 
             <Grid container spacing={matchDownSM ? 0 : 2}>
               <Grid item xs={12} sm={6}>
-                <InputLabel id="demo-simple-select-label">
-                  Priority
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  label="priority"
-                  onChange={(e) => setFieldValue('priority',e.target.value)}
-                  value={values.priority}
-                >
-                  <MenuItem value={"Low"}>Low</MenuItem>
-                  <MenuItem value={"Medium"}>Medium</MenuItem>
-                  <MenuItem value={"High"}>High</MenuItem>
-                  <MenuItem value={"Very High"}>Very High</MenuItem>
-                </Select>
+                <TextField
+                  fullWidth
+                  label="Description"
+                  margin="normal"
+                  name="description"
+                  type="text"
+                  defaultValue=""
+                  value={ values.description }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  sx={{ ...theme.typography.customInput }}
+                />
               </Grid>
               <Grid item xs={12} sm={6}>
-                 <TextField
-  id="datetime-local"
-  label="Select Date and Time"
-  type="datetime-local"
+                <TextField
+                  fullWidth
+                  label="Skills"
+                  margin="normal"
+                  name="skills"
+                  value={ values.skills }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  type="text"
+                  defaultValue=""
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container spacing={matchDownSM ? 0 : 2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Company Logo"
+                  margin="normal"
+                  name="company_logo"
+                  type="text"
+                  defaultValue=""
+                  value={ values.company_logo }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Company Website"
+                  margin="normal"
+                  name="company_website"
+                  value={ values.company_website }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  type="text"
+                  defaultValue=""
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container spacing={matchDownSM ? 0 : 2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Company Email"
+                  margin="normal"
+                  name="company_email"
+                  type="text"
+                  defaultValue=""
+                  value={ values.company_email }
+                  onChange={(e) => 
+                  handleChange(e)
+                }
+                  sx={{ ...theme.typography.customInput }}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+  id="date"
+  label="Last date to apply"
+  type="date"
   value={selectedDate}
   onChange={(e) => setSelectedDate(e.target.value)}
   InputLabelProps={{
@@ -241,11 +337,6 @@ const AddJob = ({ ...others }) => {
               </Grid>
             </Grid>
 
-            
-      
-
-
-            
 
             <Box sx={{ mt: 2 }}>
               <AnimateButton>
