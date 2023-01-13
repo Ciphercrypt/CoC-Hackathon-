@@ -190,9 +190,7 @@ const SearchSection = () => {
                     aria-describedby="search-helper-text"
                     inputProps={{ 'aria-label': 'weight' }}
                 />
-                <Button style={ { marginLeft: 10 } } variant="outlined">Name</Button>
-                <Button style={ { marginLeft: 10 } } variant="outlined">Batch Year</Button>
-                <Button  style={{marginLeft:10}} variant="outlined">Branch</Button>
+               
             </Box>
         </>
     );

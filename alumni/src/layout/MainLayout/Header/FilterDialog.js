@@ -73,7 +73,7 @@ const FilterDialog = () => {
 				</div>
 				<Divider />
 				<div>
-					<DialogTitle>Serch Job Posts</DialogTitle>
+					<DialogTitle>Search Job Posts</DialogTitle>
 					<DialogContent>
 						{/* <DialogContentText>
 						To subscribe to this website, please enter your email address here. We will send updates
@@ -174,7 +174,7 @@ const FilterDialog = () => {
 				</div>
 				<DialogActions>
 					<Button onClick={handleClose}>Cancel</Button>
-					<Button onClick={handleClose}>Subscribe</Button>
+					<Button onClick={handleClose}>Submit</Button>
 				</DialogActions>
 			</Dialog>
 		</div>
