@@ -13,12 +13,12 @@ const icons = {
 
 const utilities = {
     id: 'utilities',
-    title: 'Utilities',
+    title: 'avishkar',
     type: 'group',
     children: [
         {
             id: 'util-typography',
-            title: 'Typography',
+            title: 'Events',
             type: 'item',
             url: '/utils/util-typography',
             icon: icons.IconTypography,
@@ -26,7 +26,7 @@ const utilities = {
         },
         {
             id: 'util-color',
-            title: 'Color',
+            title: 'Photo Galary',
             type: 'item',
             url: '/utils/util-color',
             icon: icons.IconPalette,
@@ -34,7 +34,7 @@ const utilities = {
         },
         {
             id: 'util-shadow',
-            title: 'Shadow',
+            title: 'Jobs',
             type: 'item',
             url: '/utils/util-shadow',
             icon: icons.IconShadow,

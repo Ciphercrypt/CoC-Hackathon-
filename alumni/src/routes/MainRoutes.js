@@ -63,24 +63,7 @@ const MainRoutes = {
                 }
             ]
         },
-        {
-            path: 'icons',
-            children: [
-                {
-                    path: 'tabler-icons',
-                    element: <UtilsTablerIcons />
-                }
-            ]
-        },
-        {
-            path: 'icons',
-            children: [
-                {
-                    path: 'material-icons',
-                    element: <UtilsMaterialIcons />
-                }
-            ]
-        },
+       
         {
             path: 'sample-page',
             element: <SamplePage />
