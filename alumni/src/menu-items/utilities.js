@@ -17,50 +17,36 @@ const utilities = {
     type: 'group',
     children: [
         {
-            id: 'util-typography',
+            id: 'events',
             title: 'Events',
             type: 'item',
-            url: '/utils/util-typography',
+            url: '/events',
             icon: icons.IconTypography,
             breadcrumbs: false
         },
         {
-            id: 'util-color',
-            title: 'Photo Galary',
+            id: 'jobs',
+            title: 'Jobs',
             type: 'item',
-            url: '/utils/util-color',
+            url: 'jobs',
             icon: icons.IconPalette,
             breadcrumbs: false
         },
         {
-            id: 'util-shadow',
-            title: 'Jobs',
+            id: 'photo-galary',
+            title: 'Photo Galary',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/photogalary',
             icon: icons.IconShadow,
             breadcrumbs: false
         },
         {
-            id: 'icons',
-            title: 'Icons',
-            type: 'collapse',
-            icon: icons.IconWindmill,
-            children: [
-                {
-                    id: 'tabler-icons',
-                    title: 'Tabler Icons',
-                    type: 'item',
-                    url: '/icons/tabler-icons',
-                    breadcrumbs: false
-                },
-                {
-                    id: 'material-icons',
-                    title: 'Material Icons',
-                    type: 'item',
-                    url: '/icons/material-icons',
-                    breadcrumbs: false
-                }
-            ]
+            id: 'user-list',
+            title: 'User List',
+            type: 'item',
+            url: '/users',
+            icon: icons.IconShadow,
+            breadcrumbs: false
         }
     ]
 };
