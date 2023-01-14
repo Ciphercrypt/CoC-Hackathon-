@@ -18,6 +18,8 @@ const Events=Loadable(lazy(() => import('views/dashboard/Default/events')));
 const Job=Loadable(lazy(() => import('views/dashboard/Default/job')));
 const Photogalary=Loadable(lazy(() => import('views/dashboard/Photogalary')));
 const Userlist=Loadable(lazy(() => import('views/dashboard/userlist')));
+const Landingpage=Loadable(lazy(() => import('views/landingpage')));
+
 
 
 
@@ -28,11 +30,11 @@ const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
-    path: '/',
+    path: '/default',
     element: <MainLayout />,
     children: [
         {
-            path: '/',
+            path: '/default',
             element: <DashboardDefault />
         },
         {
@@ -44,37 +46,14 @@ const MainRoutes = {
                 }
             ]
         },
-        // {
-        //     path: 'utils',
-        //     children: [
-        //         {
-        //             path: 'util-typography',
-        //             element: <UtilsTypography />
-        //         }
-        //     ]
-        // },
-        // {
-        //     path: 'utils',
-        //     children: [
-        //         {
-        //             path: 'util-color',
-        //             element: <UtilsColor />
-        //         }
-        //     ]
-        // },
-        // {
-        //     path: 'utils',
-        //     children: [
-        //         {
-        //             path: 'util-shadow',
-        //             element: <UtilsShadow />
-        //         }
-        //     ]
-        // },
 
         {
             path: 'events',
             element: <Events />
+        },
+        {
+            path: 'landing',
+            element: <Landingpage />
         },
         {
             path: 'jobs',

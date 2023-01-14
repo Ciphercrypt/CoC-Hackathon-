@@ -8,6 +8,8 @@ import Job from 'views/dashboard/Default/job';
 import Photogalary from 'views/dashboard/Photogalary';
 import UserList from 'views/dashboard/userlist';
 import AddEvent from 'addpages/addevents';
+import Landingpage from 'views/landingpage';
+
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const SamplePage = () => (
@@ -18,6 +20,7 @@ const SamplePage = () => (
     <Job />
     <Photogalary />
     <UserList />
+    <Landingpage />
 
    
     </>

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { postUser } from "store/actions";
+import { useDispatch } from 'react-redux';
+
 
 // material-ui
 import { useTheme } from "@mui/material/styles";
@@ -41,6 +44,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const FirebaseRegister = ({ ...others }) => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const scriptedRef = useScriptRef();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
@@ -77,51 +81,7 @@ const FirebaseRegister = ({ ...others }) => {
     <>
       <Grid container direction="column" justifyContent="center" spacing={2}>
         <Grid item xs={12}>
-          <AnimateButton>
-            <Button
-              variant="outlined"
-              fullWidth
-              onClick={googleHandler}
-              size="large"
-              sx={{
-                color: "grey.700",
-                backgroundColor: theme.palette.grey[50],
-                borderColor: theme.palette.grey[100],
-              }}
-            >
-              <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
-                <img
-                  src={Google}
-                  alt="google"
-                  width={16}
-                  height={16}
-                  style={{ marginRight: matchDownSM ? 8 : 16 }}
-                />
-              </Box>
-              Sign up with Google
-            </Button>
-          </AnimateButton>
-        </Grid>
-        <Grid item xs={12}>
           <Box sx={{ alignItems: "center", display: "flex" }}>
-            <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-            <Button
-              variant="outlined"
-              sx={{
-                cursor: "unset",
-                m: 2,
-                py: 0.5,
-                px: 7,
-                borderColor: `${theme.palette.grey[100]} !important`,
-                color: `${theme.palette.grey[900]}!important`,
-                fontWeight: 500,
-                borderRadius: `${customization.borderRadius}px`,
-              }}
-              disableRipple
-              disabled
-            >
-              OR
-            </Button>
             <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
           </Box>
         </Grid>
@@ -131,13 +91,7 @@ const FirebaseRegister = ({ ...others }) => {
           container
           alignItems="center"
           justifyContent="center"
-        >
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="subtitle1">
-              Sign up with Email address
-            </Typography>
-          </Box>
-        </Grid>
+        ></Grid>
       </Grid>
 
       <Formik
@@ -154,7 +108,8 @@ const FirebaseRegister = ({ ...others }) => {
           company: "",
           emp_type: "",
           dob: "",
-          address:"",
+          address: "",
+          name:"john doe",
           submit: null,
         }}
         validationSchema={Yup.object().shape({
@@ -166,7 +121,8 @@ const FirebaseRegister = ({ ...others }) => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            console.log(values)
+            console.log(values);
+            dispatch(postUser(values));
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
@@ -200,23 +156,20 @@ const FirebaseRegister = ({ ...others }) => {
                   name="fname"
                   type="text"
                   defaultValue=""
-                  value={ values.fname }
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  value={values.fname}
+                  onChange={(e) => handleChange(e)}
                   sx={{ ...theme.typography.customInput }}
                 />
               </Grid>
+              { console.log({values})}
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="Last Name"
                   margin="normal"
                   name="lname"
-                  value={ values.lname }
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  value={values.lname}
+                  onChange={(e) => handleChange(e)}
                   type="text"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -231,10 +184,8 @@ const FirebaseRegister = ({ ...others }) => {
                   label="Batch Year"
                   margin="normal"
                   name="batch_year"
-                  value={ values.batch_year }
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  value={values.batch_year}
+                  onChange={(e) => handleChange(e)}
                   type="number"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -247,10 +198,8 @@ const FirebaseRegister = ({ ...others }) => {
                   margin="normal"
                   name="branch"
                   type="text"
-                  value={ values.branch }
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  value={values.branch}
+                  onChange={(e) => handleChange(e)}
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -264,10 +213,8 @@ const FirebaseRegister = ({ ...others }) => {
                   label="College ID"
                   margin="normal"
                   name="clg_id"
-                  value={ values.clg_id }
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  value={values.clg_id}
+                  onChange={(e) => handleChange(e)}
                   type="Number"
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
@@ -281,9 +228,7 @@ const FirebaseRegister = ({ ...others }) => {
                   name="contact"
                   value={values.contact}
                   type="text"
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  onChange={(e) => handleChange(e)}
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -292,18 +237,22 @@ const FirebaseRegister = ({ ...others }) => {
 
             <Grid container spacing={matchDownSM ? 0 : 2}>
               <Grid item xs={12} sm={6}>
-                <InputLabel id="demo-simple-select-label">
+                <InputLabel id="employement">
                   Employment Type
                 </InputLabel>
                 <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  label="Age"
-                  onChange={handleChange}
+                  labelId="employement"
+                  id="employement"
+                  label="Employment Type "
+                  name="emp_type"
+                  type="text"
+                  value={values.emp_type}
+                  defaultValue="student"
+                  onChange={(e) => handleChange(e)}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={"student"}>Student</MenuItem>
+                  <MenuItem value={"entreprenuer"}>Entreprenuer</MenuItem>
+                  <MenuItem value={"Industry"}>Industry</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -313,9 +262,7 @@ const FirebaseRegister = ({ ...others }) => {
                   margin="normal"
                   name="post"
                   type="text"
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  onChange={(e) => handleChange(e)}
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -331,9 +278,7 @@ const FirebaseRegister = ({ ...others }) => {
                   name="company"
                   value={values.company}
                   type="Text"
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  onChange={(e) => handleChange(e)}
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
@@ -346,24 +291,22 @@ const FirebaseRegister = ({ ...others }) => {
                   name="dob"
                   value={values.dob}
                   type="Date"
-                  onChange={(e) => 
-                  handleChange(e)
-                }
+                  onChange={(e) => handleChange(e)}
                   defaultValue=""
                   sx={{ ...theme.typography.customInput }}
                 />
               </Grid>
             </Grid>
- <FormControl
+            <FormControl
               fullWidth
               error={Boolean(touched.address && errors.address)}
               sx={{ ...theme.typography.customInput }}
             >
-              <InputLabel htmlFor="outlined-adornment-email-register" >
+              <InputLabel htmlFor="outlined-adornment-email-register">
                 Address
               </InputLabel>
               <OutlinedInput
-                rows={ 4 }
+                rows={4}
                 minRows={4}
                 id="outlined-adornment-email-register"
                 type="text"
@@ -519,6 +462,7 @@ const FirebaseRegister = ({ ...others }) => {
               </AnimateButton>
             </Box>
           </form>
+          
         )}
       </Formik>
     </>
@@ -526,5 +470,3 @@ const FirebaseRegister = ({ ...others }) => {
 };
 
 export default FirebaseRegister;
-
-
